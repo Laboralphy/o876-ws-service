@@ -1,5 +1,5 @@
 {
-  "name": "o876-ws-service",
+  "name": "@laboralphy/ws-service",
   "version": "0.1.0",
   "description": "An express/socket.io modular micro-service manager",
   "main": "index.js",
@@ -20,5 +20,6 @@
   "dependencies": {
     "express": "^4.17.1",
     "socket.io": "^2.3.0"
-  }
+  },
+  "devDependencies": {}
 }
