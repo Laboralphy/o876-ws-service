@@ -6,7 +6,6 @@ class Client {
 	constructor() {
 		this._id = '';
 		this._socket = null;
-		this._status = 0;
 		this._data = {};
 		this.reset();
 	}
@@ -15,7 +14,9 @@ class Client {
 		return this._id;
 	}
 
-
+	/**
+	 * @param value {string}
+	 */
 	set id(value) {
 		this._id = value;
 	}
@@ -28,14 +29,6 @@ class Client {
 		this._socket = value;
 	}
 
-	get status() {
-		return this._status;
-	}
-
-	set status(value) {
-		this._status = value
-	}
-
 	get data() {
 		return this._data;
 	}
@@ -45,18 +38,8 @@ class Client {
 	 */
 	reset() {
 		this._id = '';
-		this._name = '';
 		this._socket = null;
-		this._status = 0;
 		this._data = {};
-	}
-
-	/**
-	 * Renvoie le nom affichable d'un client
-	 * @returns {string}
-	 */
-	display() {
-		return this.name + '#' + this.id;
 	}
 }
 

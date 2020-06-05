@@ -1,0 +1,24 @@
+{
+  "name": "o876-ws-service",
+  "version": "0.1.0",
+  "description": "An express/socket.io modular micro-service manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Laboralphy/o876-ws-service.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Laboralphy/o876-ws-service/issues"
+  },
+  "homepage": "https://github.com/Laboralphy/o876-ws-service#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  }
+}
