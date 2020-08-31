@@ -70,19 +70,25 @@ class Abstract {
 		}
 	}
 
+	getBroadcastEventType(sEvent) {
+		return CONSTS.OPCODE_SERVICE_BROADCAST_PREFIX + CONSTS.OPCODE_SERVICE_BROADCAST_SEPARATOR + sEvent;
+	}
+
 	/**
 	 * Transmet une information à tous les plugins
 	 * @param sEvent {string} nature de l'évènement
 	 * @param data {*} information supplémentaire
 	 */
 	serviceBroadcast(sEvent, data) {
-		this.clientManager.events.emit(CONSTS.OPCODE_SERVICE_BROADCAST, sEvent, data);
+		this.clientManager.events.emit(this.getBroadcastEventType(sEvent), data);
 	}
 
 	addBroadcastListener(sEvent, pHandler) {
-		this.clientManager.events.on(CONSTS.OPCODE_SERVICE_BROADCAST, (sEvent, data) => {
-			pHandler(data);
-		});
+		this.clientManager.events.on(this.getBroadcastEventType(sEvent), pHandler);
+	}
+
+	removeBroadcastListener(sEvent, pHandler) {
+		this.clientManager.events.off(this.getBroadcastEventType(sEvent), pHandler);
 	}
 }
 

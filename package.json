@@ -1,6 +1,6 @@
 {
   "name": "@laboralphy/ws-service",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "An express/socket.io modular micro-service manager",
   "main": "index.js",
   "scripts": {
