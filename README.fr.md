@@ -18,7 +18,7 @@ la forme d'une classe basée sur un _ServiceAbstract_ et doivent implementer
 des méthodes afin de réagir aux évènements déclenchés par l'activité des 
 clients.
 
-#### Liste des méthodes à implémenter
+### Liste des méthodes à implémenter
  - la methode **init** sera lancée un seule fois, à l'installation du micro-service dans le service
  - la méthode **connectClient** est invoquée à chaque fois qu'un client ouvre une connexion websocket.
  - la méthode **disconnectClient** est invoquée à chaque fois qu'un client ferme sa connexion websocket.
@@ -26,9 +26,8 @@ clients.
  micro-service de définir ses propres routes afin de réagir aux requêtes http des clients.
 
 
-#### Liste des methodes proposées par le ServiceAbstract
+### Liste des méthodes proposées par le ServiceAbstract
  - la méthode **addBroadcastListener** est utilisée par les micro-services pour déclarer un écouteur 
   de messages inter-micro-services.
  - la méthode **serviceBroadcast** est utilisée par les micro-services pour envoyer des messages à 
  d'autres services.
-
