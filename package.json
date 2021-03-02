@@ -1,6 +1,6 @@
 {
   "name": "@laboralphy/ws-service",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "An express/socket.io modular micro-service manager",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,7 @@
   "homepage": "https://github.com/Laboralphy/o876-ws-service#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "socket.io": "^2.4.0"
+    "socket.io": "^3.1.0"
   },
   "devDependencies": {}
 }
