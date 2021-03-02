@@ -26,7 +26,7 @@ clients.
  micro-service de définir ses propres routes afin de réagir aux requêtes http des clients.
 
 
-#### Liste des methodes proposées par le ServiceAbstract
+#### Liste des methodes proposées par le ServiceAbstract
  - la méthode **addBroadcastListener** est utilisée par les micro-services pour déclarer un écouteur 
   de messages inter-micro-services.
  - la méthode **serviceBroadcast** est utilisée par les micro-services pour envoyer des messages à 

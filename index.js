@@ -47,16 +47,17 @@ class WSService {
 	/**
 	 * Active l'ecoute du service "http" et du service "ws" sur le port spécifié.
 	 * @param nPort {number} numéro du port d'écoute
+	 * @param sAddr {string} addresse d'écoute du serveur
 	 * @return {Promise<void>}
 	 */
-	listen(nPort) {
+	listen(nPort, sAddr = '0.0.0.0') {
 		return new Promise(resolve => {
 			this._serviceManager.registerRoutes(this.application, express);
 			this._io = socket_io(this._httpServer);
 			this._io.on('connection', socket => {
 				this._serviceManager.accept(socket);
 			});
-			this._httpServer.listen(nPort, () => {
+			this._httpServer.listen(nPort, sAddr, () => {
 				resolve();
 			});
 		})
