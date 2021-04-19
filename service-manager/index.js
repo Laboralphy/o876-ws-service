@@ -15,9 +15,8 @@ class ServiceManager {
         instance.clientManager = this.clientManager;
         this._services.push(instance);
         if ('init' in instance) {
-            instance.init();
+            return instance.init();
         }
-        return this;
     }
 
     /**
