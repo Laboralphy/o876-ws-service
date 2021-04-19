@@ -34,7 +34,12 @@ class WSService {
 	 * @param oService {ServiceAbstract}
 	 */
 	service(oService) {
-		this._serviceManager.service(oService);
+		const r = this._serviceManager.service(oService);
+		if (r instanceof Promise) {
+			return r
+		} else {
+			return Promise.resolve(r)
+		}
 	}
 
 	/**
