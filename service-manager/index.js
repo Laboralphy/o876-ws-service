@@ -34,7 +34,7 @@ class ServiceManager {
      * Iteration sur chaque micro service pour leurs signifier qu'ils peuvent définir des routes
      */
     registerRoutes(application, express) {
-        this._services.forEach(p => p.registerRoutes(application, express));
+        return this._services.map(p => p.registerRoutes(application, express));
     }
 
     /**
