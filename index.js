@@ -55,14 +55,18 @@ class WSService {
 	 * @param sAddr {string} addresse d'écoute du serveur
 	 * @return {Promise<void>}
 	 */
-	async listen(nPort, sAddr = '0.0.0.0') {
+	async listen({ port, address = '0.0.0.0', wsEngine = null }) {
 		await this._serviceManager.registerRoutes(this.application, express);
 		return new Promise(resolve => {
-			this._io = socket_io(this._httpServer);
+			const wsOptions = {}
+			if (wsEngine) {
+				wsOptions.wsEngine = wsEngine
+			}
+			this._io = socket_io(this._httpServer, wsOptions);
 			this._io.on('connection', socket => {
 				this._serviceManager.accept(socket);
 			});
-			this._httpServer.listen(nPort, sAddr, () => {
+			this._httpServer.listen(port, address, () => {
 				resolve();
 			});
 		})
