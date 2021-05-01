@@ -51,18 +51,15 @@ class WSService {
 
 	/**
 	 * Active l'ecoute du service "http" et du service "ws" sur le port spécifié.
-	 * @param nPort {number} numéro du port d'écoute
-	 * @param sAddr {string} addresse d'écoute du serveur
+	 * @param port {number} numéro du port d'écoute
+	 * @param address {string} addresse d'écoute du serveur
+	 * @param ioOptions {object} options passées à socket.io
 	 * @return {Promise<void>}
 	 */
-	async listen({ port, address = '0.0.0.0', wsEngine = null }) {
+	async listen ({ port, address = '0.0.0.0', ioOptions = {} }) {
 		await this._serviceManager.registerRoutes(this.application, express);
 		return new Promise(resolve => {
-			const wsOptions = {}
-			if (wsEngine) {
-				wsOptions.wsEngine = wsEngine
-			}
-			this._io = socket_io(this._httpServer, wsOptions);
+			this._io = socket_io(this._httpServer, ioOptions);
 			this._io.on('connection', socket => {
 				this._serviceManager.accept(socket);
 			});
